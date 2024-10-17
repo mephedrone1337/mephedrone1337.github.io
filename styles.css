@@ -1,0 +1,149 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+    color: #FFF;
+}
+
+/* Video Background with Blur */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2;
+    object-fit: cover;
+    filter: blur(8px); /* Add blur effect */
+    transform: scale(1.1); /* Slight zoom to compensate for blur crop */
+}
+
+/* Dark Overlay */
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
+    z-index: 1;
+}
+
+/* Profile Picture Styling */
+.pfp {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #5DADE2;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+}
+
+/* Typewriter Effect */
+.typewriter {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 3.5s steps(40, end) forwards;
+}
+
+/* Typing Animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Blinking Cursor */
+.typewriter::after {
+    content: "";
+    animation: blink 0.75s step-end infinite;
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background-color: #5DADE2;
+    margin-left: 3px;
+    position: relative;
+    top: 2px;
+    animation: blink 0.75s step-end infinite, stopCursor 3.5s steps(40, end) forwards;
+}
+
+/* Fix cursor position when typing is done */
+@keyframes stopCursor {
+    from { width: 3px; }
+    to { width: 0; }
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* About Section */
+.about {
+    opacity: 0; /* Start hidden */
+    transform: translateY(-10px); /* Slightly move it up */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    margin-top: 20px;
+    font-size: 1.3rem;
+    max-width: 600px;
+    padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.103); /* Translucent background */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Styles for the hover trigger */
+.about-trigger {
+    cursor: pointer; /* Change cursor to pointer */
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.219); /* Light background for visibility */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center text */
+    transition: background-color 0.3s; /* Smooth background change */
+}
+
+/* Hide the button when about is shown */
+.about-shown {
+    display: none; /* Hide the trigger when the About section is shown */
+}
+
+/* Change background color on hover */
+.about-trigger:hover {
+    background-color: rgba(255, 255, 255, 1); /* Fully opaque on hover */
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #AAA;
+}
+
+.info {
+    margin-bottom: 20px; /* Add space below the info section */
+}
+
+.relationship {
+    font-weight: bold; /* Highlight the relationship section */
+    color: #FF4081; /* Use a different color for emphasis */
+}
+
+@media (max-width: 600px) {
+    .about {
+        font-size: 1.1rem; /* Smaller font size on smaller screens */
+    }
+}
