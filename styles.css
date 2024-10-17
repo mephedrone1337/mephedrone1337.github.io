@@ -3,147 +3,148 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial', sans-serif; /* Ensures consistent font across all elements */
 }
 
 body, html {
     height: 100%;
-    overflow: hidden;
-    color: #FFF;
+    overflow: hidden; /* Prevents scrolling and ensures the background video fills the screen */
+    color: #FFF; /* Sets white font color for all text by default */
 }
 
 /* Video Background with Blur */
 #background-video {
-    position: fixed;
+    position: fixed; /* Ensures video stays in the background */
     top: 0;
     left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -2;
-    object-fit: cover;
-    filter: blur(8px); /* Add blur effect */
-    transform: scale(1.1); /* Slight zoom to compensate for blur crop */
+    min-width: 100%; /* Ensures video covers full width */
+    min-height: 100%; /* Ensures video covers full height */
+    z-index: -2; /* Keeps video behind all other content */
+    object-fit: cover; /* Ensures video scales properly without distorting aspect ratio */
+    filter: blur(8px); /* Adds blur effect for a soft look */
+    transform: scale(1.1); /* Slight zoom to compensate for cropping due to the blur */
 }
 
 /* Dark Overlay */
 .content {
-    position: relative;
+    position: relative; /* Allows for layering over the video */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    align-items: center; /* Centers content horizontally */
+    justify-content: center; /* Centers content vertically */
+    height: 100vh; /* Fills the full height of the viewport */
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
-    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7); /* Adds a semi-transparent dark overlay */
+    z-index: 1; /* Ensures the content is above the background video */
 }
 
 /* Profile Picture Styling */
 .pfp {
-    width: 150px;
+    width: 150px; /* Set fixed size for profile picture */
     height: 150px;
-    border-radius: 50%;
-    border: 3px solid #5DADE2;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-    margin-bottom: 30px;
+    border-radius: 50%; /* Makes the profile picture circular */
+    border: 3px solid #5DADE2; /* Adds a blue border */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Adds glowing effect to the picture */
+    margin-bottom: 30px; /* Adds space below the picture */
 }
 
 /* Typewriter Effect */
 .typewriter {
-    font-size: 3rem;
-    letter-spacing: 3px;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-    animation: typing 3.5s steps(40, end) forwards;
+    font-size: 3rem; /* Large font for prominent text */
+    letter-spacing: 3px; /* Adds space between each letter */
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden; /* Hides the text initially for typewriter effect */
+    width: 0; /* Initially set width to 0 for animation */
+    animation: typing 3.5s steps(40, end) forwards; /* Animate the width to create typing effect */
 }
 
 /* Typing Animation */
 @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+    from { width: 0; } /* Starts from 0 width */
+    to { width: 100%; } /* Expands to full width */
 }
 
 /* Blinking Cursor */
 .typewriter::after {
-    content: "";
-    animation: blink 0.75s step-end infinite;
+    content: ""; /* Creates a cursor for the typewriter effect */
+    animation: blink 0.75s step-end infinite; /* Makes the cursor blink */
     display: inline-block;
-    width: 3px;
-    height: 1em;
-    background-color: #5DADE2;
-    margin-left: 3px;
+    width: 3px; /* Width of the cursor */
+    height: 1em; /* Height same as the text */
+    background-color: #5DADE2; /* Matches the blue accent color */
+    margin-left: 3px; /* Adds small gap between the text and cursor */
     position: relative;
     top: 2px;
-    animation: blink 0.75s step-end infinite, stopCursor 3.5s steps(40, end) forwards;
+    animation: blink 0.75s step-end infinite, stopCursor 3.5s steps(40, end) forwards; /* Stops the cursor after typing is done */
 }
 
 /* Fix cursor position when typing is done */
 @keyframes stopCursor {
-    from { width: 3px; }
-    to { width: 0; }
+    from { width: 3px; } /* Keeps cursor visible during typing */
+    to { width: 0; } /* Hides cursor when typing ends */
 }
 
 @keyframes blink {
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+    50% { opacity: 0; } /* Makes the cursor disappear halfway through the animation */
+    100% { opacity: 1; } /* Makes the cursor reappear */
 }
 
 /* About Section */
 .about {
-    opacity: 0; /* Start hidden */
-    transform: translateY(-10px); /* Slightly move it up */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-    margin-top: 20px;
-    font-size: 1.3rem;
-    max-width: 600px;
-    padding: 0 20px;
-    background-color: rgba(0, 0, 0, 0.103); /* Translucent background */
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0; /* Starts hidden until triggered */
+    transform: translateY(-10px); /* Moves slightly upwards to animate into view */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transitions for showing the element */
+    margin-top: 20px; /* Adds space above the section */
+    font-size: 1.3rem; /* Medium-sized font */
+    max-width: 600px; /* Limits the width to avoid it stretching too wide */
+    padding: 0 20px; /* Adds padding for readability */
+    background-color: rgba(0, 0, 0, 0.103); /* Translucent background for readability */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Adds shadow for a lifted effect */
 }
 
 /* Styles for the hover trigger */
 .about-trigger {
-    cursor: pointer; /* Change cursor to pointer */
-    padding: 10px 15px;
-    background-color: rgba(0, 0, 0, 0.219); /* Light background for visibility */
-    border-radius: 5px; /* Rounded corners */
-    text-align: center; /* Center text */
-    transition: background-color 0.3s; /* Smooth background change */
+    cursor: pointer; /* Indicates the section is clickable */
+    padding: 10px 15px; /* Adds padding inside the trigger button */
+    background-color: rgba(0, 0, 0, 0.219); /* Light transparent background */
+    border-radius: 5px; /* Slightly rounded corners */
+    text-align: center; /* Centers the text within the button */
+    transition: background-color 0.3s; /* Smooth transition for background color on hover */
 }
 
 /* Hide the button when about is shown */
 .about-shown {
-    display: none; /* Hide the trigger when the About section is shown */
+    display: none; /* Removes the button from view when the About section is visible */
 }
 
 /* Change background color on hover */
 .about-trigger:hover {
-    background-color: rgba(255, 255, 255, 1); /* Fully opaque on hover */
+    background-color: rgba(255, 255, 255, 1); /* Fully opaque background on hover */
 }
 
 /* Footer */
 footer {
     position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #AAA;
+    bottom: 20px; /* Places the footer at the bottom with some padding */
+    width: 100%; /* Stretches across the width of the page */
+    text-align: center; /* Centers the text */
+    font-size: 0.9rem; /* Smaller font for less emphasis */
+    color: #AAA; /* Grey color for subtle text */
 }
 
 .info {
-    margin-bottom: 20px; /* Add space below the info section */
+    margin-bottom: 20px; /* Adds space below the info section */
 }
 
 .relationship {
-    font-weight: bold; /* Highlight the relationship section */
-    color: #FF4081; /* Use a different color for emphasis */
+    font-weight: bold; /* Makes the text bold for emphasis */
+    color: #FF4081; /* Use a contrasting pink color for emphasis */
 }
 
+/* Responsive Design for smaller screens */
 @media (max-width: 600px) {
     .about {
-        font-size: 1.1rem; /* Smaller font size on smaller screens */
+        font-size: 1.1rem; /* Adjusts font size for smaller screens */
     }
 }
